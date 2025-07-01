@@ -992,7 +992,13 @@ class BotManager:
                         }
                         
                         # Выполняем через execution engine или trader
-                        success = await self._execute_real_trade(trade_data)
+                        success = await self._execute_real_trade(
+                            symbol,
+                            signal,
+                            position_size,
+                            price,
+                            trade_data
+                        )
                         
                         if success:
                             logger.info(f"✅ РЕАЛЬНАЯ сделка выполнена: {symbol} {signal}")
